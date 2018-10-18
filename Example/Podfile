@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DSLoadable_Example' do
+  pod 'DSLoadable', :path => '../'
+
+  target 'DSLoadable_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
