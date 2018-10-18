@@ -11,6 +11,18 @@ import DSLoadable
 
 class ViewController: UIViewController {
     
+    let defaultConfiguration: (UIView, UIView) -> Void = { (button, loadingView) in
+        guard let lView = loadingView as? LoadingView else {
+            return
+        }
+        if let buttonView = button as? UIButton {
+            lView.layer.cornerRadius = buttonView.layer.cornerRadius
+            lView.clipsToBounds = buttonView.clipsToBounds
+            lView.indicatorView.color = buttonView.titleColor(for: .normal)
+            lView.indicatorView.backgroundColor = buttonView.backgroundColor
+        }
+    }
+    
     @IBOutlet weak var testView: TestView!
     @IBOutlet weak var submitButton: UIButton!
     
@@ -20,19 +32,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func submitDidPress(_ sender: Any?) {
-        submitButton.startLoading { (button, loadingView) in
-            guard let lView = loadingView as? LoadingView else {
-                return
-            }
-            if let buttonView = button as? UIButton {
-                lView.layer.cornerRadius = buttonView.layer.cornerRadius
-                lView.clipsToBounds = buttonView.clipsToBounds
-                lView.indicatorView.color = buttonView.titleColor(for: .normal)
-                lView.indicatorView.backgroundColor = buttonView.backgroundColor
-            }
-        }
+        view.startLoading()
+        submitButton.startLoading(configuration: defaultConfiguration)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.submitButton.stopLoading()
+            self.view.stopLoading()
         }
     }
     

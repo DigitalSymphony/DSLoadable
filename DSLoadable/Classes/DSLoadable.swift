@@ -9,7 +9,7 @@ import Foundation
 import MSAutoView
 
 extension UIView {
-    public func startLoading(loadingViewType: UIView.Type = LoadingView.self, configuration: ((UIView, UIView) -> Void)?) {
+    public func startLoading(loadingViewType: UIView.Type = LoadingView.self, configuration: ((UIView, UIView) -> Void)? = nil) {
         var loadingView = subviews.first(where: { type(of: $0) == loadingViewType })
         if loadingView == nil {
             loadingView = loadingViewType.init()
