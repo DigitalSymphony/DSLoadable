@@ -1,0 +1,6 @@
+framework module DSLoadable {
+  umbrella header "DSLoadable-umbrella.h"
+
+  export *
+  module * { export * }
+}

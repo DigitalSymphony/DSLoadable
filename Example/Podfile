@@ -2,6 +2,8 @@ use_frameworks!
 
 target 'DSLoadable_Example' do
   pod 'DSLoadable', :path => '../'
+  
+  pod 'MSAutoView'
 
   target 'DSLoadable_Tests' do
     inherit! :search_paths

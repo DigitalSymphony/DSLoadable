@@ -1,0 +1,6 @@
+framework module Pods_DSLoadable_Example {
+  umbrella header "Pods-DSLoadable_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

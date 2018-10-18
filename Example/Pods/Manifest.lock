@@ -1,0 +1,24 @@
+PODS:
+  - DSLoadable (0.1.0):
+    - MSAutoView
+  - MSAutoView (2.8.0)
+
+DEPENDENCIES:
+  - DSLoadable (from `../`)
+  - MSAutoView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MSAutoView
+
+EXTERNAL SOURCES:
+  DSLoadable:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DSLoadable: 2c21b03129bc7810eb1c8039783cd4e7d6712265
+  MSAutoView: d2a5d8f34bda0df50d60e5625998af0b215b773f
+
+PODFILE CHECKSUM: ad5e2ac80bbc5b0ce639e724eea361d68c65449f
+
+COCOAPODS: 1.5.3
