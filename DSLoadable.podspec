@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'DSLoadable'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of DSLoadable.'
+  s.summary          = 'Let\'s embrace non-blocking loading views to build awesome apps!'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,10 +18,10 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+To give the user a great user experience, we need to use non-blocking loaders for almost every element that does some asynchronous work. We tend to avoid handling this type of loading by blocking the whole view with a big loader. We don't want to manually add a loading view for each subview in the view controller, and managing them would be very hard. This repo provides fully customizable functions and methods which allows you to easily show loaders for any UIView. You can also plug in your favorite loading animation from another project!
                        DESC
 
-  s.homepage         = 'https://github.com/MaherKSantina/DSLoadable'
+  s.homepage         = 'https://github.com/DigitalSymphony/DSLoadable'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'MaherKSantina' => 'maher.santina90@gmail.com' }
