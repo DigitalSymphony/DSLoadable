@@ -25,7 +25,7 @@ To give the user a great user experience, we need to use non-blocking loaders fo
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'MaherKSantina' => 'maher.santina90@gmail.com' }
-  s.source           = { :git => 'https://github.com/MaherKSantina/DSLoadable.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/DigitalSymphony/DSLoadable', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
