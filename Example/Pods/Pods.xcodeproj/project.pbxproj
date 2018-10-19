@@ -851,7 +851,40 @@
 			};
 			name = Debug;
 		};
-		4E7430ADC8BE7DEB43AD6AF7039A617C /* Debug */ = {
+		1974D0240B294B45FEC069726244342E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8E806728BB0219335A9A020590059F5 /* DSLoadable.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DSLoadable/DSLoadable-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DSLoadable/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/DSLoadable/DSLoadable.modulemap";
+				PRODUCT_MODULE_NAME = DSLoadable;
+				PRODUCT_NAME = DSLoadable;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4D4B3F60361E850442AC84CE0C59D3D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F8E806728BB0219335A9A020590059F5 /* DSLoadable.xcconfig */;
 			buildSettings = {
@@ -876,7 +909,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -984,39 +1017,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		60A074658A3758C9BC9E7CBA6E68FA5F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8E806728BB0219335A9A020590059F5 /* DSLoadable.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/DSLoadable/DSLoadable-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DSLoadable/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DSLoadable/DSLoadable.modulemap";
-				PRODUCT_MODULE_NAME = DSLoadable;
-				PRODUCT_NAME = DSLoadable;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		7D929A17963F9713D610D72B57381ACD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1281,8 +1281,8 @@
 		70EAB757658695256B0D6658B6E7C909 /* Build configuration list for PBXNativeTarget "DSLoadable" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4E7430ADC8BE7DEB43AD6AF7039A617C /* Debug */,
-				60A074658A3758C9BC9E7CBA6E68FA5F /* Release */,
+				4D4B3F60361E850442AC84CE0C59D3D0 /* Debug */,
+				1974D0240B294B45FEC069726244342E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
