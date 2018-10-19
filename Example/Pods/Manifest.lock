@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DSLoadable: 22200c8e7a0d4d61206e3d61f868735eaee7353b
+  DSLoadable: 5190790076f909b345f4232e5ce8cd9af0870e69
   MSAutoView: d2a5d8f34bda0df50d60e5625998af0b215b773f
   NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
 

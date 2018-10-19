@@ -12,7 +12,7 @@
     "MaherKSantina": "maher.santina90@gmail.com"
   },
   "source": {
-    "git": "https://github.com/MaherKSantina/DSLoadable.git",
+    "git": "https://github.com/DigitalSymphony/DSLoadable",
     "tag": "0.1.0"
   },
   "platforms": {
