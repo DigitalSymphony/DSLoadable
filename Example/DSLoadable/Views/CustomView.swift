@@ -23,25 +23,45 @@ import MSAutoView
 import DSLoadable
 import NVActivityIndicatorView
 
-class TestView: MSAutoView {
+class CustomView: MSAutoView {
+    
+    enum LoadingType {
+        case normal
+        case custom
+    }
     
     @IBOutlet weak var submitButton: UIButton!
     
+    var loadingType: LoadingType = .normal
+    
+    
     @IBAction func submitDidPress(_ sender: Any?){
-        submitButton.loadableStartLoading { (selfView) -> UIView in
-            let activityView = NVActivityIndicatorView(frame: submitButton.bounds, type: .lineScale, color: UIColor.white, padding: 12)
-            activityView.backgroundColor = submitButton.backgroundColor
-            activityView.startAnimating()
-            return activityView
+        switch loadingType {
+        case .normal:
+            loadableStartLoading()
+        case .custom:
+            loadableStartLoading { (selfView) -> UIView in
+                let activityView = NVActivityIndicatorView(frame: submitButton.bounds, type: .lineScale, color: UIColor.white, padding: 12)
+                activityView.backgroundColor = UIColor(red: 0.94, green: 0.94, blue: 0.94, alpha: 0.5)
+                activityView.startAnimating()
+                return activityView
+            }
         }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.submitButton.loadableStopLoading(loadingViewType: NVActivityIndicatorView.self, configuration: {
-                selfView, loadingView in
-                guard let v = loadingView as? NVActivityIndicatorView else {
-                    return
-                }
-                v.stopAnimating()
-            })
+            switch self.loadingType {
+            case .normal:
+                self.loadableStopLoading()
+            case .custom:
+                self.loadableStopLoading(loadingViewType: NVActivityIndicatorView.self, configuration: {
+                    selfView, loadingView in
+                    guard let v = loadingView as? NVActivityIndicatorView else {
+                        return
+                    }
+                    v.stopAnimating()
+                })
+            }
+            
         }
     }
 

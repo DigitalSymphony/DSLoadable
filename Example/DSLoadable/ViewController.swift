@@ -20,50 +20,70 @@
 
 import UIKit
 import DSLoadable
+import NVActivityIndicatorView
 
 class ViewController: UIViewController {
     
-    let defaultConfiguration: (UIView, UIView) -> Void = { (button, loadingView) in
-        guard let lView = loadingView as? DSLoadingView else {
-            return
-        }
-        if let buttonView = button as? UIButton {
-            lView.layer.cornerRadius = buttonView.layer.cornerRadius
-            lView.clipsToBounds = buttonView.clipsToBounds
-            lView.indicatorView.color = buttonView.titleColor(for: .normal)
-            lView.indicatorView.backgroundColor = buttonView.backgroundColor
-        }
-    }
-    
-    @IBOutlet weak var testView: TestView!
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var defaultLoadingButton: UIButton!
+    @IBOutlet weak var customLoadingButton1: UIButton!
+    @IBOutlet weak var customLoadingButton2: UIButton!
+    @IBOutlet weak var customView1: CustomView!
+    @IBOutlet weak var customView2: CustomView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        customView2.loadingType = .custom
     }
     
-    @IBAction func submitDidPress(_ sender: Any?) {
-        view.loadableStartLoading()
-        submitButton.loadableStartLoading(configuration: defaultConfiguration)
+    @IBAction func allDidPress(_ sender: Any?) {
+        defaultLoadingButtonDidPress(nil)
+        customLoadingButton1DidPress(nil)
+        customLoadingButton2DidPress(nil)
+        customView1.submitDidPress(nil)
+        customView2.submitDidPress(nil)
+    }
+    
+    @IBAction func defaultLoadingButtonDidPress(_ sender: Any?) {
+        defaultLoadingButton.loadableStartLoading()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.submitButton.loadableStopLoading()
-            self.view.loadableStopLoading()
+            self.defaultLoadingButton.loadableStopLoading()
         }
     }
     
-    @IBAction func buttonDidPress(_ sender: Any?) {
-        testView.loadableStartLoading()
+    @IBAction func customLoadingButton1DidPress(_ sender: Any?){
+        customLoadingButton1.nvActivityIndicatorStartLoading(loadingType: .lineScale)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.customLoadingButton1.nvActivityIndicatorStopLoading()
+        }
     }
     
-    @IBAction func stopDidPress(_ sender: Any?) {
-        testView.loadableStopLoading()
+    @IBAction func customLoadingButton2DidPress(_ sender: Any?){
+        customLoadingButton2.nvActivityIndicatorStartLoading(loadingType: .ballClipRotateMultiple)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.customLoadingButton2.nvActivityIndicatorStopLoading()
+        }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+
+extension UIButton {
+    func nvActivityIndicatorStartLoading(loadingType: NVActivityIndicatorType) {
+        loadableStartLoading { (selfView) -> UIView in
+            let activityView = NVActivityIndicatorView(frame: bounds, type: loadingType, color: UIColor.white, padding: 12)
+            activityView.backgroundColor = backgroundColor
+            activityView.startAnimating()
+            return activityView
+        }
     }
     
+    func nvActivityIndicatorStopLoading() {
+        loadableStopLoading(loadingViewType: NVActivityIndicatorView.self, configuration: {
+            selfView, loadingView in
+            guard let v = loadingView as? NVActivityIndicatorView else {
+                return
+            }
+            v.stopAnimating()
+        })
+    }
 }
 

@@ -14,8 +14,8 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		695E82362178BBB900CA0747 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 695E82342178BBB900CA0747 /* TestView.xib */; };
-		695E82372178BBB900CA0747 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695E82352178BBB900CA0747 /* TestView.swift */; };
+		695E82362178BBB900CA0747 /* CustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 695E82342178BBB900CA0747 /* CustomView.xib */; };
+		695E82372178BBB900CA0747 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695E82352178BBB900CA0747 /* CustomView.swift */; };
 		9F2A65C7BCFDB8E90E7D0C70 /* Pods_DSLoadable_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38DDEF048FCB6A2303BBF4C3 /* Pods_DSLoadable_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +46,8 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		60829E0548C9077187B6BE2D /* Pods-DSLoadable_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSLoadable_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DSLoadable_Tests/Pods-DSLoadable_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		60D2C5287C0F0023793D59CF /* DSLoadable.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DSLoadable.podspec; path = ../DSLoadable.podspec; sourceTree = "<group>"; };
-		695E82342178BBB900CA0747 /* TestView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
-		695E82352178BBB900CA0747 /* TestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		695E82342178BBB900CA0747 /* CustomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomView.xib; sourceTree = "<group>"; };
+		695E82352178BBB900CA0747 /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		A7127AE95F89EDD0D336B75A /* Pods-DSLoadable_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DSLoadable_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DSLoadable_Tests/Pods-DSLoadable_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C94337FA58B94B7301076A16 /* Pods_DSLoadable_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DSLoadable_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8616D3B70A921EAD33527C8 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 		695E82332178BBB900CA0747 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				695E82342178BBB900CA0747 /* TestView.xib */,
-				695E82352178BBB900CA0747 /* TestView.swift */,
+				695E82342178BBB900CA0747 /* CustomView.xib */,
+				695E82352178BBB900CA0747 /* CustomView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -259,7 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				695E82362178BBB900CA0747 /* TestView.xib in Resources */,
+				695E82362178BBB900CA0747 /* CustomView.xib in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -341,7 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				695E82372178BBB900CA0747 /* TestView.swift in Sources */,
+				695E82372178BBB900CA0747 /* CustomView.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
