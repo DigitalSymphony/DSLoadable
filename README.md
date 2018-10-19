@@ -1,5 +1,7 @@
 # DSLoadable
 
+![dsloadabledemo](https://user-images.githubusercontent.com/24646608/47226902-59bcaa00-d40d-11e8-82a0-0b3947749d06.gif)
+
 ## Intro
 To give the user a great user experience, we need to use non-blocking loaders for almost every element that does some asynchronous work. We tend to avoid handling this type of loading by blocking the whole view with a big loader. We don't want to manually add a loading view for each subview in the view controller, and managing them would be very hard. This repo provides fully customizable functions and methods which allows you to easily show loaders for any UIView. You can also plug in your favorite loading animation from another project!
 
@@ -96,6 +98,8 @@ func loadableStartLoading(configuration: DSLoadingViewFromConfiguration)
 ```
 This function takes a configuration closure. This closure will return a `UIView` which will be added to the view hierarchy. In this way, we can call the custom initialization function for the `NVActivityIndicatorView` (`init(frame:,type:,color:,padding:)`) and return the final view from the closure. After the closure is executed, the `NVActivityIndicatorView` will automatically be added in the view hierarchy with constraints
 
+### Showing a loader for any view
+Showing a loader for a `UIView` works exactly the same as showing the loader for a `UIButton`. You can use the default loader provided or you can add your custom one.
 
 ## Author
 
