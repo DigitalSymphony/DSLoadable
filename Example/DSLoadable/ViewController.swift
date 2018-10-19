@@ -12,7 +12,7 @@ import DSLoadable
 class ViewController: UIViewController {
     
     let defaultConfiguration: (UIView, UIView) -> Void = { (button, loadingView) in
-        guard let lView = loadingView as? LoadingView else {
+        guard let lView = loadingView as? DSLoadingView else {
             return
         }
         if let buttonView = button as? UIButton {
@@ -32,20 +32,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func submitDidPress(_ sender: Any?) {
-        view.startLoading()
-        submitButton.startLoading(configuration: defaultConfiguration)
+        view.loadableStartLoading()
+        submitButton.loadableStartLoading(configuration: defaultConfiguration)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.submitButton.stopLoading()
-            self.view.stopLoading()
+            self.submitButton.loadableStopLoading()
+            self.view.loadableStopLoading()
         }
     }
     
     @IBAction func buttonDidPress(_ sender: Any?) {
-        testView.loadableViewStartLoading()
+        testView.loadableStartLoading()
     }
     
     @IBAction func stopDidPress(_ sender: Any?) {
-        testView.loadableViewStopLoading()
+        testView.loadableStopLoading()
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,19 +53,5 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-}
-
-extension ViewController: DSLoadableDelegate {
-    func loadable(_ loadableView: UIView, configureLoadingView loadingView: UIView) {
-        guard let lView = loadingView as? LoadingView else {
-            return
-        }
-        if let buttonView = loadableView as? UIButton, buttonView == submitButton {
-            lView.layer.cornerRadius = buttonView.layer.cornerRadius
-            lView.clipsToBounds = buttonView.clipsToBounds
-            lView.indicatorView.color = buttonView.titleColor(for: .normal)
-            lView.indicatorView.backgroundColor = buttonView.backgroundColor
-        }
-    }
 }
 

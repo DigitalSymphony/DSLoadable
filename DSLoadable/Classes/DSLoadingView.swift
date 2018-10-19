@@ -1,5 +1,5 @@
 //
-//  LoadingView.swift
+//  DSLoadingView.swift
 //  MSLoadable
 //
 //  Created by Maher Santina on 10/13/18.
@@ -9,7 +9,7 @@
 import UIKit
 import MSAutoView
 
-open class LoadingView: MSAutoView {
+open class DSLoadingView: MSAutoView {
 
     @IBOutlet public weak var indicatorView: UIActivityIndicatorView!
 

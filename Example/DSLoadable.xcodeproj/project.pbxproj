@@ -321,11 +321,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-DSLoadable_Example/Pods-DSLoadable_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DSLoadable/DSLoadable.framework",
 				"${BUILT_PRODUCTS_DIR}/MSAutoView/MSAutoView.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DSLoadable.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MSAutoView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

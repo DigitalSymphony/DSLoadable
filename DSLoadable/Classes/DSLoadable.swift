@@ -8,8 +8,45 @@
 import Foundation
 import MSAutoView
 
-extension UIView {
-    public func startLoading(loadingViewType: UIView.Type = LoadingView.self, configuration: ((UIView, UIView) -> Void)? = nil) {
+public typealias DSLoadableConfiguration = (UIView, UIView) -> Void
+public typealias DSLoadingViewFromConfiguration = (UIView) -> UIView
+
+public struct DSDefaults {
+    static let buttonConfiguration: DSLoadableConfiguration = {
+        selfView, loadingView in
+        guard let lView = loadingView as? DSLoadingView, let selfButton = selfView as? UIButton else {
+            return
+        }
+        lView.layer.cornerRadius = selfButton.layer.cornerRadius
+        lView.clipsToBounds = selfButton.clipsToBounds
+        lView.indicatorView.color = selfButton.titleColor(for: .normal)
+        lView.indicatorView.backgroundColor = selfButton.backgroundColor
+    }
+}
+
+public protocol DSLoadable {
+    func loadableStartLoading(configuration: DSLoadingViewFromConfiguration)
+    func loadableStartLoading(loadingViewType: UIView.Type, configuration: DSLoadableConfiguration?)
+    func loadableStopLoading(loadingViewType: UIView.Type, configuration: DSLoadableConfiguration?)
+}
+
+public protocol DSLoadableConfigurable {
+    var loadableLoadingViewType: UIView.Type { get }
+    var loadableConfiguration: DSLoadableConfiguration? { get }
+}
+
+extension DSLoadable where Self: UIButton {
+    public func loadableStartLoading() {
+        return loadableStartLoading(loadingViewType: DSLoadingView.self, configuration: DSDefaults.buttonConfiguration)
+    }
+    
+    public func loadableStopLoading() {
+        return loadableStopLoading(loadingViewType: DSLoadingView.self)
+    }
+}
+
+extension DSLoadable where Self: UIView {
+    public func loadableStartLoading(loadingViewType: UIView.Type = DSLoadingView.self, configuration: ((UIView, UIView) -> Void)? = nil) {
         var loadingView = subviews.first(where: { type(of: $0) == loadingViewType })
         if loadingView == nil {
             loadingView = loadingViewType.init()
@@ -21,80 +58,28 @@ extension UIView {
         addSubviewWithConstraints(v)
     }
     
-    public func stopLoading(loadingViewType: UIView.Type = LoadingView.self) {
-        let loadingView = subviews.first(where: { type(of: $0) == loadingViewType })
-        loadingView?.removeFromSuperview()
-    }
-}
-
-public protocol DSLoadableDelegate {
-    func loadableShouldStartLoading(_ loadableView: UIView)
-    func loadableShouldStopLoading(_ loadableView: UIView)
-    func loadable(_ loadableView: UIView, configureLoadingView loadingView: UIView)
-}
-
-extension DSLoadableDelegate {
-    public func loadableShouldStartLoading(_ loadableView: UIView) {
-        let loadingView = loadableSuperviewForLoading(loadableView).subviews.first(where: { type(of: $0) == loadingViewTypeFor(loadableView) })
-        loadingView?.removeFromSuperview()
+    public func loadableStartLoading(configuration: DSLoadingViewFromConfiguration) {
+        let view = configuration(self)
+        addSubviewWithConstraints(view)
     }
     
-    public func loadableShouldStopLoading(_ view: UIView) {
-        var loadingView = loadableSuperviewForLoading(view).subviews.first(where: { type(of: $0) == loadingViewTypeFor(view) })
-        if loadingView == nil {
-            loadingView = loadingViewTypeFor(view).init()
+    public func loadableStopLoading(loadingViewType: UIView.Type = DSLoadingView.self, configuration: DSLoadableConfiguration? = nil) {
+        guard let loadingView = subviews.first(where: { type(of: $0) == loadingViewType }) else {
+            return
         }
-        loadable(view, configureLoadingView: loadingView!)
-        loadableSuperviewForLoading(view).addSubviewWithConstraints(loadingView!)
-    }
-    
-    public func loadingViewTypeFor(_ loadableView: UIView) -> UIView.Type {
-        return LoadingView.self
-    }
-    
-    public func loadable(_ loadableView: UIView, configureLoadingView loadingView: UIView) {
-        
-    }
-    
-    public func loadableSuperviewForLoading(_ loadableView: UIView) -> UIView {
-        return loadableView
+        configuration?(self, loadingView)
+        loadingView.removeFromSuperview()
     }
 }
 
-public protocol DSLoadable {
-    func loadableViewStartLoading()
-    func loadableViewStopLoading()
-    func loadingViewTypeFor(_ loadableView: UIView) -> UIView.Type
-    func loadableViewSuperviewForLoading(_ loadableView: UIView) -> UIView
-    func loadableView(_ loadableView: UIView, configureLoadingView loadingView: UIView)
-}
-
-extension DSLoadable {
-    public func loadingViewTypeFor(_ loadableView: UIView) -> UIView.Type {
-        return LoadingView.self
+extension DSLoadable where Self: UIView, Self: DSLoadableConfigurable {
+    public func loadableStartLoading() {
+        return loadableStartLoading(loadingViewType: loadableLoadingViewType, configuration: loadableConfiguration)
     }
     
-    public func loadableView(_ loadableView: UIView, configureLoadingView loadingView: UIView) {
-        
+    public func loadableStopLoading() {
+        return loadableStopLoading(loadingViewType: loadableLoadingViewType)
     }
 }
 
-extension DSLoadable where Self: UIView {
-    public func loadableViewStopLoading() {
-        let loadingView = loadableViewSuperviewForLoading(self).subviews.first(where: { type(of: $0) == loadingViewTypeFor(self) })
-        loadingView?.removeFromSuperview()
-    }
-    
-    public func loadableViewStartLoading() {
-        var loadingView = loadableViewSuperviewForLoading(self).subviews.first(where: { type(of: $0) == loadingViewTypeFor(self) })
-        if loadingView == nil {
-            loadingView = loadingViewTypeFor(self).init()
-        }
-        loadableView(self, configureLoadingView: loadingView!)
-        loadableViewSuperviewForLoading(self).addSubviewWithConstraints(loadingView!)
-    }
-    
-    public func loadableViewSuperviewForLoading(_ loadableView: UIView) -> UIView {
-        return self
-    }
-}
+extension UIView: DSLoadable {  }

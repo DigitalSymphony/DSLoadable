@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestView" customModule="MSLoadableView_Example" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestView" customModule="DSLoadable_Example" customModuleProvider="target">
             <connections>
                 <outlet property="submitButton" destination="SaJ-a1-OhS" id="ShJ-ug-jL6"/>
             </connections>
@@ -21,8 +21,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SaJ-a1-OhS">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="245"/>
+                    <rect key="frame" x="0.0" y="201" width="375" height="44"/>
                     <color key="backgroundColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="YAS-Y7-xnp"/>
+                    </constraints>
                     <state key="normal" title="Pay Now">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -35,11 +38,20 @@
                         <action selector="submitDidPress:" destination="-1" eventType="touchUpInside" id="YuN-Fl-gGZ"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receipt: 100$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Re1-mu-RWI">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="175"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="SaJ-a1-OhS" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="3Ih-pO-YM8"/>
+                <constraint firstItem="Re1-mu-RWI" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="4iT-LW-1Bc"/>
+                <constraint firstItem="Re1-mu-RWI" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Bo3-pZ-B7F"/>
+                <constraint firstItem="SaJ-a1-OhS" firstAttribute="top" secondItem="Re1-mu-RWI" secondAttribute="bottom" constant="26" id="ZYH-tj-UV7"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="SaJ-a1-OhS" secondAttribute="trailing" id="bZR-ea-Hvo"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Re1-mu-RWI" secondAttribute="trailing" id="dHi-NL-EYi"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="SaJ-a1-OhS" secondAttribute="bottom" id="uxY-og-AQX"/>
                 <constraint firstItem="SaJ-a1-OhS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="x1L-Dq-fQk"/>
             </constraints>
