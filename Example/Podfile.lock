@@ -1,5 +1,5 @@
 PODS:
-  - DSLoadable (0.1.0):
+  - DSLoadable (0.1.1):
     - MSAutoView
   - MSAutoView (2.8.0)
   - NVActivityIndicatorView (4.4.0):
@@ -21,7 +21,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DSLoadable: ca6c84e6f66b7e6c32e9f6f0faefca74bfe5b1f6
+  DSLoadable: fa26560d93774bbf92902998c28a95c584d977d8
   MSAutoView: d2a5d8f34bda0df50d60e5625998af0b215b773f
   NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
 

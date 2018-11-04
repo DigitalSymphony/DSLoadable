@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DSLoadable'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Let\'s embrace non-blocking loading views to build awesome apps!'
   s.swift_version    = '3.2'
 
