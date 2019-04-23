@@ -6,9 +6,4 @@ target 'DSLoadable_Example' do
   pod 'MSAutoView'
   pod 'NVActivityIndicatorView'
 
-  target 'DSLoadable_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end

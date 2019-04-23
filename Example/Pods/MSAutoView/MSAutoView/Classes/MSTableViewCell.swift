@@ -11,7 +11,7 @@ open class MSTableViewCell<T: MSAutoView>: UITableViewCell {
     
     public var mainView = T()
     
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         initView()
     }
@@ -26,6 +26,11 @@ open class MSTableViewCell<T: MSAutoView>: UITableViewCell {
         contentView.addSubviewWithConstraints(mainView)
         backgroundColor = mainView.backgroundColor
         mainView.tableViewCell = self
+    }
+    
+    open override func prepareForReuse() {
+        super.prepareForReuse()
+        mainView.prepareForReuse()
     }
 }
 

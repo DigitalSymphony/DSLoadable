@@ -82,5 +82,9 @@ open class MSAutoView: UIView, MSXibEmbedding {
         //Override
     }
     
+    open func prepareForReuse() {
+        //Override
+    }
+    
 }
 

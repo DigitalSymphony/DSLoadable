@@ -1,10 +1,10 @@
 PODS:
-  - DSLoadable (0.1.1):
+  - DSLoadable (1.0.0):
     - MSAutoView
-  - MSAutoView (2.8.0)
-  - NVActivityIndicatorView (4.4.0):
-    - NVActivityIndicatorView/Presenter (= 4.4.0)
-  - NVActivityIndicatorView/Presenter (4.4.0)
+  - MSAutoView (3.1.0)
+  - NVActivityIndicatorView (4.6.1):
+    - NVActivityIndicatorView/Presenter (= 4.6.1)
+  - NVActivityIndicatorView/Presenter (4.6.1)
 
 DEPENDENCIES:
   - DSLoadable (from `../`)
@@ -21,10 +21,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DSLoadable: fa26560d93774bbf92902998c28a95c584d977d8
-  MSAutoView: d2a5d8f34bda0df50d60e5625998af0b215b773f
-  NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
+  DSLoadable: 900613998688eabf2dfe18b9a04eb2a209100e30
+  MSAutoView: 3087530f735587bc54ffc727d7c593e7027fa43f
+  NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
 
-PODFILE CHECKSUM: 2afea4c548067bf45270358d5186259f9b215753
+PODFILE CHECKSUM: 16858abcf1b214103e88a5be931ca5aea70fd97a
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0

@@ -35,7 +35,7 @@ extension UIView {
         
         subview.translatesAutoresizingMaskIntoConstraints = false
         
-        let viewConstraints = [NSLayoutAttribute.top, NSLayoutAttribute.left, NSLayoutAttribute.bottom, NSLayoutAttribute.right].map { (attribute) -> NSLayoutConstraint in
+        let viewConstraints = [NSLayoutConstraint.Attribute.top, NSLayoutConstraint.Attribute.left, NSLayoutConstraint.Attribute.bottom, NSLayoutConstraint.Attribute.right].map { (attribute) -> NSLayoutConstraint in
             return NSLayoutConstraint(item: subview, attribute: attribute, relatedBy: .equal, toItem: self, attribute: attribute, multiplier: 1, constant: 0)
         }
         

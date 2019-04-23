@@ -26,6 +26,11 @@ open class MSCollectionViewCell<T: MSAutoView>: UICollectionViewCell {
         backgroundColor = mainView.backgroundColor
         mainView.collectionViewCell = self
     }
+    
+    open override func prepareForReuse() {
+        super.prepareForReuse()
+        mainView.prepareForReuse()
+    }
 }
 
 public protocol CollectionViewCellContainable {
