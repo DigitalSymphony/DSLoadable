@@ -77,6 +77,20 @@ extension DSLoadable where Self: UIButton {
     public func loadableStopLoading() {
         return loadableStopLoading(loadingViewType: DSLoadingView.self)
     }
+    
+    /**
+     Convenience method for controling the loading with a boolean value
+     
+     - parameter shouldLoad: The boolean value that controls the loading overlay
+     */
+    public func loadable(shouldLoad: Bool) {
+        switch shouldLoad {
+        case true:
+            loadableStartLoading()
+        case false:
+            loadableStopLoading()
+        }
+    }
 }
 
 extension DSLoadable where Self: UIView {
@@ -104,6 +118,22 @@ extension DSLoadable where Self: UIView {
         configuration?(self, loadingView)
         loadingView.removeFromSuperview()
     }
+    
+    /**
+     Convenience method for controling the loading with a boolean value
+     
+     - parameter shouldLoad: The boolean value that controls the loading overlay
+     - parameter loadingViewType: The type of the loading view
+     - parameter configuration: The configuration closure that will be executed on the loading view
+     */
+    public func loadable(shouldLoad: Bool, loadingViewType: UIView.Type = DSLoadingView.self, configuration: ((UIView, UIView) -> Void)? = nil) {
+        switch shouldLoad {
+        case true:
+            loadableStartLoading(loadingViewType: loadingViewType, configuration: configuration)
+        case false:
+            loadableStopLoading(loadingViewType: loadingViewType)
+        }
+    }
 }
 
 extension DSLoadable where Self: UIView, Self: DSLoadableConfigurable {
@@ -113,6 +143,20 @@ extension DSLoadable where Self: UIView, Self: DSLoadableConfigurable {
     
     public func loadableStopLoading() {
         return loadableStopLoading(loadingViewType: loadableLoadingViewType)
+    }
+    
+    /**
+     Convenience method for controling the loading with a boolean value
+     
+     - parameter shouldLoad: The boolean value that controls the loading overlay
+     */
+    public func loadable(shouldLoad: Bool) {
+        switch shouldLoad {
+        case true:
+            loadableStartLoading()
+        case false:
+            loadableStopLoading()
+        }
     }
 }
 
